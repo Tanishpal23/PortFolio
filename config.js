@@ -166,7 +166,7 @@ const PORTFOLIO_CONFIG = {
 
     \resumeProjectHeading
       {\href{https://github.com/Tanishpal23/Banking-System}{\underline{\textbf{Core Banking System}}} \faExternalLink*
-      \ $|$ \emph{C++17, STL, File I/O, Git, LLD, OOP}}{\href{https://www.onlinegdb.com/MV9SF_PEn}{\underline{\textbf{Live Demo}}} \faExternalLink*}
+      \ $|$ \emph{C++17, STL, File I/O, Git, LLD, OOP}}{\href{https://github.com/Tanishpal23/Banking-System}{\underline{\textbf{GitHub}}} \faExternalLink* $|$ \href{https://www.onlinegdb.com/MV9SF_PEn}{\underline{\textbf{Live Demo}}} \faExternalLink*}
       \resumeItemListStart
         \resumeItem{Built a PIN-authenticated core banking system in C++17 supporting accounts, deposits, and inter-account transfers.}
         \resumeItem{Designed an append-only audit log persistence layer ensuring transaction state reliably survives restarts.}
@@ -174,8 +174,8 @@ const PORTFOLIO_CONFIG = {
       \resumeItemListEnd
 
     \resumeProjectHeading
-      {\href{https://github.com/Tanishpal23/Ai-Interiew-Mocker}{\underline{\textbf{Mock Mate}}} \faExternalLink*
-      \ $|$ \emph{Next.js 14, Gemini API, Neon PostgreSQL, Drizzle ORM, Web Speech API}}{\href{https://mockmate-gamma.vercel.app/}{\underline{\textbf{Live Demo}}} \faExternalLink*}
+      {\href{https://mockmate-gamma.vercel.app/}{\underline{\textbf{Mock Mate}}} \faExternalLink*
+      \ $|$ \emph{Next.js 14, Gemini API, Neon PostgreSQL, Drizzle ORM, Web Speech API}}{\href{https://github.com/Tanishpal23/Ai-Interiew-Mocker}{\underline{\textbf{GitHub}}} \faExternalLink* $|$ \href{https://mockmate-gamma.vercel.app/}{\underline{\textbf{Live Demo}}} \faExternalLink*}
       \resumeItemListStart
         \resumeItem{Engineered an automated AI assessment platform via \textbf{Google Gemini LLM}, giving instant scoring and qualitative feedback.}
         \resumeItem{Integrated browser-native \textbf{Web Speech STT/TTS} engines for sub-second vocal interview simulation without audio API costs.}
@@ -192,8 +192,8 @@ const PORTFOLIO_CONFIG = {
       \resumeItemListEnd
 
     \resumeProjectHeading
-      {\href{https://github.com/Tanishpal23/ChessAnalyzer}{\underline{\textbf{ChessAnalyzer}}} \faExternalLink*
-      \ $|$ \emph{React, TypeScript, Stockfish 18 WASM, Web Workers, Zustand, Vite}}{\href{https://chess-analyzer-pearl.vercel.app/}{\underline{\textbf{Live Demo}}} \faExternalLink*}
+      {\href{https://chess-analyzer-pearl.vercel.app/}{\underline{\textbf{ChessAnalyzer}}} \faExternalLink*
+      \ $|$ \emph{React, TypeScript, Stockfish 18 WASM, Web Workers, Zustand, Vite}}{\href{https://github.com/Tanishpal23/ChessAnalyzer}{\underline{\textbf{GitHub}}} \faExternalLink* $|$ \href{https://chess-analyzer-pearl.vercel.app/}{\underline{\textbf{Live Demo}}} \faExternalLink*}
       \resumeItemListStart
         \resumeItem{Engineered a 100\% client-side chess analysis engine offloading Stockfish 18 WASM minimax search to Web Workers for 60 FPS play.}
         \resumeItem{Implemented CAPS2 accuracy scoring using non-linear win-chance models ($\tanh$) to detect Brilliant moves and Missed Wins.}
@@ -223,6 +223,11 @@ const PORTFOLIO_CONFIG = {
 
 \end{document}`
 };
+
+// Attach to window for global access across scripts
+if (typeof window !== 'undefined') {
+  window.PORTFOLIO_CONFIG = PORTFOLIO_CONFIG;
+}
 
 // Support CommonJS export if used in Node.js test scripts
 if (typeof module !== 'undefined' && module.exports) {

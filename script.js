@@ -1,6 +1,8 @@
 /* --------------------------------------------------------------------------
    TANISH PAL - PORTFOLIO INTERACTION ENGINE (VANILLA JS ES6+)
    -------------------------------------------------------------------------- */
+import './config.js';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   applyPortfolioConfig();
