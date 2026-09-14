@@ -713,45 +713,66 @@ async function loadResumeFromTeX() {
   const toolbarLeft = document.querySelector('.toolbar-left');
   if (!sheet) return;
 
-  try {
-    const res = await fetch('./resume.tex?t=' + Date.now());
-    if (!res.ok) throw new Error('Failed to fetch resume.tex (status ' + res.status + ')');
-    const texContent = await res.text();
-    const parsedHtml = parseLaTeXResume(texContent);
-    if (parsedHtml) {
-      sheet.innerHTML = parsedHtml;
-      if (toolbarLeft && !document.getElementById('tex-sync-badge')) {
-        const badge = document.createElement('span');
-        badge.id = 'tex-sync-badge';
-        badge.style.fontSize = '0.72rem';
-        badge.style.padding = '0.15rem 0.5rem';
-        badge.style.borderRadius = '999px';
-        badge.style.background = 'rgba(16, 185, 129, 0.15)';
-        badge.style.color = '#10b981';
-        badge.style.border = '1px solid rgba(16, 185, 129, 0.3)';
-        badge.style.marginLeft = '0.5rem';
-        badge.innerHTML = '<i class="fa-solid fa-circle-check"></i> Linked to resume.tex';
-        toolbarLeft.appendChild(badge);
+  let texContent = null;
+
+  // 1. Try fetching from network (cache-busted, relative and root paths)
+  const paths = ['./resume.tex?t=' + Date.now(), '/resume.tex', './resume.tex'];
+  for (const path of paths) {
+    try {
+      const res = await fetch(path);
+      if (res.ok) {
+        const text = await res.text();
+        if (text && text.includes('\\begin{document}')) {
+          texContent = text;
+          break;
+        }
       }
-    }
-  } catch (err) {
-    console.warn('Direct resume.tex import notice:', err.message);
-    // Over file:// protocol, browsers block fetch() due to CORS security policies
-    if (window.location.protocol === 'file:') {
-      sheet.innerHTML = `
-        <div style="text-align: center; padding: 3rem 1.5rem; color: var(--text-muted);">
-          <i class="fa-solid fa-triangle-exclamation" style="font-size: 2rem; color: #f59e0b; margin-bottom: 1rem; display: block;"></i>
-          <h3 style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 0.5rem;">CORS Security Restriction (file:// protocol)</h3>
-          <p style="max-width: 520px; margin: 0 auto 1rem; font-size: 0.88rem; line-height: 1.6;">
-            Your browser blocks direct local file reading via <code>fetch('./resume.tex')</code> when opened as a raw file link.
-          </p>
-          <p style="font-size: 0.85rem; color: var(--accent-cyan); font-weight: 500;">
-            Run <code>npm run dev</code> or open via <code>http://localhost:5173</code> (or host on GitHub Pages / Vercel) for real-time live LaTeX sync!
-          </p>
-        </div>
-      `;
+    } catch (e) {
+      // Continue to next path or fallback
     }
   }
+
+  // 2. Fallback to embedded raw LaTeX string from PORTFOLIO_CONFIG
+  if (!texContent && typeof PORTFOLIO_CONFIG !== 'undefined' && PORTFOLIO_CONFIG.resumeTex) {
+    texContent = PORTFOLIO_CONFIG.resumeTex;
+  }
+
+  // 3. Render parsed HTML
+  if (texContent) {
+    try {
+      const parsedHtml = parseLaTeXResume(texContent);
+      if (parsedHtml) {
+        sheet.innerHTML = parsedHtml;
+        if (toolbarLeft && !document.getElementById('tex-sync-badge')) {
+          const badge = document.createElement('span');
+          badge.id = 'tex-sync-badge';
+          badge.style.fontSize = '0.72rem';
+          badge.style.padding = '0.15rem 0.5rem';
+          badge.style.borderRadius = '999px';
+          badge.style.background = 'rgba(16, 185, 129, 0.15)';
+          badge.style.color = '#10b981';
+          badge.style.border = '1px solid rgba(16, 185, 129, 0.3)';
+          badge.style.marginLeft = '0.5rem';
+          badge.innerHTML = '<i class="fa-solid fa-circle-check"></i> Linked to resume.tex';
+          toolbarLeft.appendChild(badge);
+        }
+        return;
+      }
+    } catch (parseErr) {
+      console.error('LaTeX parsing error:', parseErr);
+    }
+  }
+
+  // 4. If all fail (e.g. raw file protocol without config)
+  sheet.innerHTML = `
+    <div style="text-align: center; padding: 3rem 1.5rem; color: var(--text-muted);">
+      <i class="fa-solid fa-triangle-exclamation" style="font-size: 2rem; color: #f59e0b; margin-bottom: 1rem; display: block;"></i>
+      <h3 style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 0.5rem;">Resume Loading Error</h3>
+      <p style="max-width: 520px; margin: 0 auto 1rem; font-size: 0.88rem; line-height: 1.6;">
+        Could not load resume.tex source. Please check network connectivity or refresh the page.
+      </p>
+    </div>
+  `;
 }
 
 function extractBalancedBrace(str, startIndex) {

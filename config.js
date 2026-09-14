@@ -60,6 +60,168 @@ const PORTFOLIO_CONFIG = {
       codeUrl: "https://github.com/Tanishpal23",
       demoUrl: "https://brainly-ko1p.vercel.app/"
     }
+  },
+
+  /**
+   * Fallback raw LaTeX resume string.
+   * Guarantees instant rendering on Vercel/GitHub Pages even if direct file fetching is blocked.
+   */
+  resumeTex: String.raw`% Author: Tanish Pal
+\documentclass[letterpaper,10pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{graphicx}
+\usepackage[margin=0.45in, top=0.38in, bottom=0.38in]{geometry}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+
+\titlespacing*{\section}{0pt}{4pt}{2.5pt}
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{#1 \vspace{-1.5pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \vspace{-1pt}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, itemsep=1.5pt, parsep=0pt, topsep=1pt, partopsep=0pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-4pt}}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.18in, itemsep=1pt, parsep=0pt, topsep=1pt, partopsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-3.5pt}}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \scshape Tanish Pal} \\ \vspace{1.5pt}
+    {\small \textit{Software Engineer $|$ Full-Stack Development $|$ Systems \& C++ $|$ Python $|$ DSA}} \\ \vspace{2.5pt}
+    \footnotesize
+    \href{tel:+917009890319}{\faPhone\ +91-7009890319} \hspace{0.4em}$|$\hspace{0.4em}
+    \href{mailto:tanish.pal.biz@gmail.com}{\faEnvelope\ tanish.pal.biz@gmail.com} \hspace{0.4em}$|$\hspace{0.4em}
+    \href{https://shorturl.at/V8bXN}{\faLinkedin\ LinkedIn} \hspace{0.4em}$|$\hspace{0.4em}
+    \href{https://github.com/Tanishpal23}{\faGithub\ GitHub} \hspace{0.4em}$|$\hspace{0.4em}
+    \href{https://leetcode.com/u/Tech_tonic/}{\faCode\ LeetCode} \hspace{0.4em}$|$\hspace{0.4em}
+    \href{https://www.geeksforgeeks.org/profile/tanishhh22xz1}{\faCodeBranch\ GeeksforGeeks}
+\end{center}
+\vspace{-8pt}
+
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Dr. B. R. Ambedkar National Institute of Technology (NIT Jalandhar)}{2022 -- 2026}
+      {Bachelor of Technology in Electronics and Communication Engineering}{}
+  \resumeSubHeadingListEnd
+
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {A2IT}{June -- July 2025}
+      {Software Development Intern}{Remote}
+      \resumeItemListStart
+        \resumeItem{Built 10+ responsive React UI components for Cheffer, enhancing cross-device compatibility and usability.}
+        \resumeItem{Optimized React state management to eliminate unnecessary re-renders; integrated REST APIs with backend.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\href{https://github.com/Tanishpal23/Banking-System}{\underline{\textbf{Core Banking System}}} \faExternalLink*
+      \ $|$ \emph{C++17, STL, File I/O, Git, LLD, OOP}}{\href{https://www.onlinegdb.com/MV9SF_PEn}{\underline{\textbf{Live Demo}}} \faExternalLink*}
+      \resumeItemListStart
+        \resumeItem{Built a PIN-authenticated core banking system in C++17 supporting accounts, deposits, and inter-account transfers.}
+        \resumeItem{Designed an append-only audit log persistence layer ensuring transaction state reliably survives restarts.}
+        \resumeItem{Engineered an adaptive CLI (ANSI color/UTF-8 detection) compiling warning-free under \texttt{-Wall -Wextra -Wpedantic}.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\href{https://github.com/Tanishpal23/Ai-Interiew-Mocker}{\underline{\textbf{Mock Mate}}} \faExternalLink*
+      \ $|$ \emph{Next.js 14, Gemini API, Neon PostgreSQL, Drizzle ORM, Web Speech API}}{\href{https://mockmate-gamma.vercel.app/}{\underline{\textbf{Live Demo}}} \faExternalLink*}
+      \resumeItemListStart
+        \resumeItem{Engineered an automated AI assessment platform via \textbf{Google Gemini LLM}, giving instant scoring and qualitative feedback.}
+        \resumeItem{Integrated browser-native \textbf{Web Speech STT/TTS} engines for sub-second vocal interview simulation without audio API costs.}
+        \resumeItem{Streamlined data persistence via \textbf{Neon Serverless PostgreSQL} and \textbf{Drizzle ORM}; secured auth via React Server Actions \& Clerk.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\href{https://knowyourproduct-wine.vercel.app/}{\underline{\textbf{KnowYourProduct}}} \faExternalLink*
+      \ $|$ \emph{React, Node.js, Express, MongoDB, Tailwind CSS}}{\href{https://github.com/Tanishpal23/knowyourproduct}{\underline{\textbf{GitHub}}} \faExternalLink* $|$ \href{https://knowyourproduct-wine.vercel.app/}{\underline{\textbf{Live Demo}}} \faExternalLink*}
+      \resumeItemListStart
+        \resumeItem{Engineered a health \& nutrition platform enabling consumers to scan, search, and compare packaged foods for dietary insights.}
+        \resumeItem{Integrated real-time barcode scanning via HTML5-QRCode API, mapping products to nutritional metrics and allergens.}
+        \resumeItem{Architected a secure Express \& MongoDB REST API with Mongoose text indexing and JWT authentication.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\href{https://github.com/Tanishpal23/ChessAnalyzer}{\underline{\textbf{ChessAnalyzer}}} \faExternalLink*
+      \ $|$ \emph{React, TypeScript, Stockfish 18 WASM, Web Workers, Zustand, Vite}}{\href{https://chess-analyzer-pearl.vercel.app/}{\underline{\textbf{Live Demo}}} \faExternalLink*}
+      \resumeItemListStart
+        \resumeItem{Engineered a 100\% client-side chess analysis engine offloading Stockfish 18 WASM minimax search to Web Workers for 60 FPS play.}
+        \resumeItem{Implemented CAPS2 accuracy scoring using non-linear win-chance models ($\tanh$) to detect Brilliant moves and Missed Wins.}
+        \resumeItem{Built an opening theory engine covering 110+ variations with $O(1)$ prefix-set hash lookups for instant ECO identification.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.12in, label={}, itemsep=1pt, parsep=0pt, topsep=1pt]
+    \small{
+      \item \textbf{Languages}{: C/C++ (C++17), Python, JavaScript (ES6+), TypeScript, SQL}
+      \item \textbf{Frameworks \& Libraries}{: React.js, Next.js, Redux, Node.js, Express.js, TailwindCSS}
+      \item \textbf{Databases \& Tools}{: PostgreSQL, MySQL, MongoDB, Drizzle ORM, Git, GitHub, Postman, Vercel, VS Code}
+      \item \textbf{APIs \& Cloud}{: Google Gemini API, OpenAI API, REST APIs, Web Workers, WebAssembly (WASM)}
+      \item \textbf{Data Analysis}{: Power BI, Power Query, DAX, Excel, Pandas, NumPy}
+      \item \textbf{Core Coursework}{: Data Structures \& Algorithms, Object-Oriented Programming (OOP), DBMS, Operating Systems}
+    }
+ \end{itemize}
+ \vspace{-4pt}
+
+\section{Achievements \& Activities}
+  \resumeItemListStart
+    \resumeItem{\textbf{\href{https://leetcode.com/u/Tech_tonic/}{LeetCode}} -- Peak rating 1726; solved 500+ DSA/Dynamic Programming problems (top percentile, Contest 479).}
+    \resumeItem{\textbf{Smart India Hackathon (SIH) Participant} $|$ GDSC NITJ Hackathon Finalist -- Selected for national-level SIH (Govt. of India); ranked among top teams at GDSC NITJ hackathon competing against 50+ teams.}
+  \resumeItemListEnd
+
+\end{document}`
   }
 };
 
