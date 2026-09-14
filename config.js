@@ -222,7 +222,6 @@ const PORTFOLIO_CONFIG = {
   \resumeItemListEnd
 
 \end{document}`
-  }
 };
 
 // Support CommonJS export if used in Node.js test scripts
