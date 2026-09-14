@@ -1,0 +1,14 @@
+{
+  "name": "tanish-pal-portfolio",
+  "version": "1.0.0",
+  "description": "Professional Software Engineering Portfolio of Tanish Pal",
+  "scripts": {
+    "dev": "npx -y vite",
+    "serve": "python -m http.server 5173",
+    "build": "npx -y vite build",
+    "preview": "npx -y vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.2"
+  }
+}
