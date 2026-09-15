@@ -963,9 +963,10 @@
           <!-- Contact Form -->
           <div class="contact-form-card glass-card">
             <h3 class="form-title">Send a Direct Message</h3>
-            <p class="form-desc">Fill out the quick form below to launch your email client with your message prefilled.</p>
+            <p class="form-desc">Fill out the form below to send a message directly to my inbox.</p>
 
             <form id="contact-form" class="contact-form">
+              <input type="checkbox" name="botcheck" id="contact-botcheck" class="hidden" style="display: none;">
               <div class="form-group">
                 <label for="contact-name">Your Name</label>
                 <input type="text" id="contact-name" required placeholder="Jane Doe" class="form-input">
@@ -986,8 +987,8 @@
                 <textarea id="contact-message" rows="4" required placeholder="Hi Tanish, I reviewed your portfolio and would like to connect regarding..." class="form-input"></textarea>
               </div>
 
-              <button type="submit" class="btn btn-primary btn-block">
-                <i class="fa-solid fa-paper-plane"></i> Send Message
+              <button type="submit" class="btn btn-primary btn-block" id="contact-submit-btn">
+                <i class="fa-solid fa-paper-plane"></i> <span id="contact-submit-text">Send Message</span>
               </button>
             </form>
           </div>

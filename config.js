@@ -24,6 +24,15 @@ const PORTFOLIO_CONFIG = {
     gfg: "https://www.geeksforgeeks.org/profile/tanishhh22xz1"
   },
 
+  contact: {
+    // Web3Forms API Key: Get your free key at https://web3forms.com
+    // (Simply enter tanish.pal.biz@gmail.com and the key arrives in your inbox instantly)
+    // Once pasted here, messages from your portfolio contact form will be delivered directly to your email!
+    web3formsKey: "445a1ee5-1073-441a-a9b9-4765273c51a3",
+    // Alternative: Formspree endpoint (e.g. "https://formspree.io/f/your_form_id")
+    formspreeEndpoint: ""
+  },
+
   projects: {
     coreBanking: {
       name: "Core Banking System",

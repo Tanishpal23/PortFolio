@@ -1139,11 +1139,23 @@ function initContactAndClipboard() {
     });
   });
 
-  // Contact Form
+  // Contact Form - Direct Inbox Delivery
   const contactForm = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('contact-submit-btn');
+  const submitText = document.getElementById('contact-submit-text');
+
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // Bot protection check
+      const botCheck = document.getElementById('contact-botcheck');
+      if (botCheck && botCheck.checked) {
+        // Honeypot caught a bot
+        contactForm.reset();
+        return;
+      }
+
       const name = document.getElementById('contact-name').value.trim();
       const email = document.getElementById('contact-email').value.trim();
       const subject = document.getElementById('contact-subject').value.trim();
@@ -1154,13 +1166,83 @@ function initContactAndClipboard() {
         return;
       }
 
-      // Generate mailto link
-      const mailtoUrl = `mailto:tanish.pal.biz@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Hi Tanish,\n\n${message}\n\nFrom: ${name} (${email})`)}`;
-      
-      showToast('Opening your email client...', 'fa-paper-plane');
-      window.location.href = mailtoUrl;
+      const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending message...';
+      }
 
-      contactForm.reset();
+      const web3Key = window.PORTFOLIO_CONFIG?.contact?.web3formsKey;
+      const formspreeEndpoint = window.PORTFOLIO_CONFIG?.contact?.formspreeEndpoint;
+      const recipientEmail = window.PORTFOLIO_CONFIG?.personal?.email || 'tanish.pal.biz@gmail.com';
+
+      try {
+        if (web3Key && web3Key.trim() !== '') {
+          // Deliver directly to inbox via Web3Forms
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              access_key: web3Key.trim(),
+              name: name,
+              email: email,
+              subject: subject || `Portfolio message from ${name}`,
+              message: message,
+              from_name: name,
+              replyto: email
+            })
+          });
+
+          const data = await response.json();
+          if (data.success) {
+            showToast('Message sent directly to Tanish! Thank you.', 'fa-circle-check');
+            contactForm.reset();
+          } else {
+            throw new Error(data.message || 'Submission failed');
+          }
+        } else if (formspreeEndpoint && formspreeEndpoint.trim() !== '') {
+          // Deliver directly via Formspree
+          const response = await fetch(formspreeEndpoint.trim(), {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              name: name,
+              email: email,
+              _subject: subject || `Portfolio message from ${name}`,
+              message: message
+            })
+          });
+
+          if (response.ok) {
+            showToast('Message sent directly to Tanish! Thank you.', 'fa-circle-check');
+            contactForm.reset();
+          } else {
+            throw new Error('Formspree submission failed');
+          }
+        } else {
+          // If no API key configured yet, inform the user and open mailto as fallback
+          showToast('Opening your email client to send message...', 'fa-paper-plane');
+          const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Hi Tanish,\n\n${message}\n\nFrom: ${name}\nEmail: ${email}`)}`;
+          window.location.href = mailtoUrl;
+          contactForm.reset();
+        }
+      } catch (error) {
+        console.error('Contact submission error:', error);
+        showToast('Could not deliver directly. Launching email client...', 'fa-triangle-exclamation');
+        const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Hi Tanish,\n\n${message}\n\nFrom: ${name}\nEmail: ${email}`)}`;
+        window.location.href = mailtoUrl;
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
+        }
+      }
     });
   }
 }
