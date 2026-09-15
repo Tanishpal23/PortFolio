@@ -707,8 +707,7 @@ function initResumeActions() {
 }
 
 /**
- * Dynamically fetches and parses resume.tex directly into the HTML DOM.
- * Any edits made to resume.tex will automatically reflect on the website.
+ * Loads and parses resume.tex into the ATS preview sheet.
  */
 async function loadResumeFromTeX() {
   const sheet = document.getElementById('ats-resume-sheet');
@@ -1172,8 +1171,8 @@ function initContactAndClipboard() {
         submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending message...';
       }
 
-      const web3Key = window.PORTFOLIO_CONFIG?.contact?.web3formsKey;
-      const formspreeEndpoint = window.PORTFOLIO_CONFIG?.contact?.formspreeEndpoint;
+      const web3Key = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_WEB3FORMS_KEY) || window.PORTFOLIO_CONFIG?.contact?.web3formsKey;
+      const formspreeEndpoint = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FORMSPREE_ENDPOINT) || window.PORTFOLIO_CONFIG?.contact?.formspreeEndpoint;
       const recipientEmail = window.PORTFOLIO_CONFIG?.personal?.email || 'tanish.pal.biz@gmail.com';
 
       try {
@@ -1226,7 +1225,7 @@ function initContactAndClipboard() {
             throw new Error('Formspree submission failed');
           }
         } else {
-          // If no API key configured yet, inform the user and open mailto as fallback
+          // Fallback
           showToast('Opening your email client to send message...', 'fa-paper-plane');
           const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Hi Tanish,\n\n${message}\n\nFrom: ${name}\nEmail: ${email}`)}`;
           window.location.href = mailtoUrl;

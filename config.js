@@ -1,13 +1,6 @@
 /**
- * ==========================================================================
- * PORTFOLIO CONFIGURATION (config.js)
- * ==========================================================================
- * Single central place for all profile URLs, project repositories, live demos,
- * contact details, and external links across the entire website.
- *
- * To update any URL in the future, simply edit it here!
+ * PORTFOLIO CONFIGURATION
  */
-
 const PORTFOLIO_CONFIG = {
   personal: {
     name: "Tanish Pal",
@@ -25,12 +18,8 @@ const PORTFOLIO_CONFIG = {
   },
 
   contact: {
-    // Web3Forms API Key: Get your free key at https://web3forms.com
-    // (Simply enter tanish.pal.biz@gmail.com and the key arrives in your inbox instantly)
-    // Once pasted here, messages from your portfolio contact form will be delivered directly to your email!
-    web3formsKey: "445a1ee5-1073-441a-a9b9-4765273c51a3",
-    // Alternative: Formspree endpoint (e.g. "https://formspree.io/f/your_form_id")
-    formspreeEndpoint: ""
+    web3formsKey: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_WEB3FORMS_KEY) || "",
+    formspreeEndpoint: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FORMSPREE_ENDPOINT) || ""
   },
 
   projects: {
@@ -71,10 +60,6 @@ const PORTFOLIO_CONFIG = {
     }
   },
 
-  /**
-   * Fallback raw LaTeX resume string.
-   * Guarantees instant rendering on Vercel/GitHub Pages even if direct file fetching is blocked.
-   */
   resumeTex: String.raw`% Author: Tanish Pal
 \documentclass[letterpaper,10pt]{article}
 \usepackage{latexsym}
