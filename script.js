@@ -684,12 +684,12 @@ function initChessSimulator() {
    7. RESUME ACTIONS (PRINT & DIRECT NAVIGATION)
    -------------------------------------------------------------------------- */
 function initResumeActions() {
-  const printBtn = document.getElementById('print-resume-btn');
+  const downloadBtn = document.getElementById('download-resume-btn');
   const resumeQuickBtn = document.getElementById('resume-quick-btn');
 
-  if (printBtn) {
-    printBtn.addEventListener('click', () => {
-      window.print();
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', () => {
+      showToast('Resume downloaded successfully!', 'fa-circle-check');
     });
   }
 
@@ -744,19 +744,6 @@ async function loadResumeFromTeX() {
       const parsedHtml = parseLaTeXResume(texContent);
       if (parsedHtml) {
         sheet.innerHTML = parsedHtml;
-        if (toolbarLeft && !document.getElementById('tex-sync-badge')) {
-          const badge = document.createElement('span');
-          badge.id = 'tex-sync-badge';
-          badge.style.fontSize = '0.72rem';
-          badge.style.padding = '0.15rem 0.5rem';
-          badge.style.borderRadius = '999px';
-          badge.style.background = 'rgba(16, 185, 129, 0.15)';
-          badge.style.color = '#10b981';
-          badge.style.border = '1px solid rgba(16, 185, 129, 0.3)';
-          badge.style.marginLeft = '0.5rem';
-          badge.innerHTML = '<i class="fa-solid fa-circle-check"></i> Linked to resume.tex';
-          toolbarLeft.appendChild(badge);
-        }
         return;
       }
     } catch (parseErr) {

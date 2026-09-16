@@ -7,7 +7,8 @@ const PORTFOLIO_CONFIG = {
     title: "Software Engineer",
     email: "tanish.pal.biz@gmail.com",
     phone: "+91-7009890319",
-    location: "Punjab, India"
+    location: "Punjab, India",
+    resumeUrl: "/Tanish_Pal_Resume.pdf"
   },
 
   social: {
