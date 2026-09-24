@@ -1,7 +1,9 @@
+%-------------------------
+% ATS-Optimized 1-Page Resume (SDE-focused)
 % Author: Tanish Pal
 %-------------------------
 
-\documentclass[letterpaper,10pt]{article}
+\documentclass[letterpaper,10.5pt]{article}
 
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
@@ -16,7 +18,7 @@
 \usepackage{tabularx}
 \usepackage{fontawesome5}
 \usepackage{graphicx}
-\usepackage[margin=0.45in, top=0.38in, bottom=0.38in]{geometry}
+\usepackage{simpleicons}
 \input{glyphtounicode}
 
 \pagestyle{fancy}
@@ -25,17 +27,21 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
+% Tighter margins for 1 page
+\addtolength{\oddsidemargin}{-0.55in}
+\addtolength{\evensidemargin}{-0.55in}
+\addtolength{\textwidth}{1.1in}
+\addtolength{\topmargin}{-.75in}
+\addtolength{\textheight}{1.5in}
+
 \urlstyle{same}
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-% Strict compact section titles
 \titleformat{\section}{
-  \scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
-
-\titlespacing*{\section}{0pt}{4pt}{2.5pt}
+  \vspace{-5pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
 \pdfgentounicode=1
 
@@ -43,132 +49,136 @@
 % Custom commands
 
 \newcommand{\resumeItem}[1]{
-  \item\small{#1 \vspace{-1.5pt}}
+  \item\small{#1 \vspace{-2pt}}
 }
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-1pt}\item
-    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+  \vspace{3pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-6pt}
+    \end{tabular*}\vspace{-7pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
-    \vspace{-1pt}\item
-    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \vspace{4pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \small#1 & #2 \\
-    \end{tabular*}\vspace{-6pt}
+    \end{tabular*}\vspace{-7pt}
 }
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, itemsep=1.5pt, parsep=0pt, topsep=1pt, partopsep=0pt]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-4pt}}
-
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.18in, itemsep=1pt, parsep=0pt, topsep=1pt, partopsep=0pt]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-3.5pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.2in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 %-------------------------------------------
 \begin{document}
 
 %----------HEADING----------
 \begin{center}
-    {\LARGE \scshape Tanish Pal} \\ \vspace{1.5pt}
-    {\small \textit{Software Engineer $|$ Full-Stack Development $|$ Systems \& C++ $|$ Python $|$ DSA}} \\ \vspace{2.5pt}
-    \footnotesize
-    \href{tel:+917009890319}{\faPhone\ +91-7009890319} \hspace{0.4em}$|$\hspace{0.4em}
-    \href{mailto:tanish.pal.biz@gmail.com}{\faEnvelope\ tanish.pal.biz@gmail.com} \hspace{0.4em}$|$\hspace{0.4em}
-    \href{https://shorturl.at/V8bXN}{\faLinkedin\ LinkedIn} \hspace{0.4em}$|$\hspace{0.4em}
-    \href{https://github.com/Tanishpal23}{\faGithub\ GitHub} \hspace{0.4em}$|$\hspace{0.4em}
-    \href{https://leetcode.com/u/Tech_tonic/}{\faCode\ LeetCode} \hspace{0.4em}$|$\hspace{0.4em}
-    \href{https://www.geeksforgeeks.org/profile/tanishhh22xz1}{\faCodeBranch\ GeeksforGeeks}
+    {\Huge \scshape Tanish Pal} \\ \vspace{2pt}
+
+    {\small \textit{Software Developer | Full-Stack Developer | C++ | Python | Data Structures \& Algorithms}} \\ \vspace{3pt}
+    \small
+    \href{tel:+917009890319}{\faPhone\ +91-7009890319} \hspace{0.5em}$|$\hspace{0.5em}
+    \href{mailto:tanish.pal.biz@gmail.com}{\faEnvelope\ tanish.pal.biz@gmail.com} \hspace{0.5em}$|$\hspace{0.5em}
+    \href{https://shorturl.at/V8bXN}{\faLinkedin\ LinkedIn} \hspace{0.5em}$|$\hspace{0.5em}
+    \href{https://port-folio-swart-omega.vercel.app/}{\faGlobe\ Portfolio} \hspace{0.5em}$|$\hspace{0.5em}
+    \href{https://github.com/Tanishpal23}{\faGithub\ GitHub} \hspace{0.5em}$|$\hspace{0.5em}
+    \href{https://leetcode.com/u/Tech_tonic/}{\simpleicon{leetcode}\ LeetCode}
 \end{center}
-\vspace{-8pt}
 
 %-----------EDUCATION-----------
 \section{Education}
   \resumeSubHeadingListStart
     \resumeSubheading
-      {Dr. B. R. Ambedkar National Institute of Technology (NIT Jalandhar)}{2022 -- 2026}
-      {Bachelor of Technology in Electronics and Communication Engineering}{}
+      {Dr. B. R. Ambedkar National Institute of Technology (NIT Jalandhar)}{Nov 2022 -- June 2026}
+      {B.Tech, Electronics and Communication Engineering}{CGPA: 7.21/10}
   \resumeSubHeadingListEnd
 
 %-----------EXPERIENCE-----------
 \section{Experience}
   \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Basil Infotech}{July -- Dec 2025}
+      {Software Development Intern}{Remote}
+      \resumeItemListStart
+        \resumeItem{Developed the \textbf{Client Database} and \textbf{Lead Management} modules of a CRM/ERP system, covering client records, lead tracking, and centralized data storage.}
+        \resumeItem{Implemented automated reporting workflows over client and lead data, replacing manual tracking with generated reports.}
+      \resumeItemListEnd
+
     \resumeSubheading
       {A2IT}{June -- July 2025}
       {Software Development Intern}{Remote}
       \resumeItemListStart
-        \resumeItem{Built 10+ responsive React UI components for Cheffer, enhancing cross-device compatibility and usability.}
-        \resumeItem{Optimized React state management to eliminate unnecessary re-renders; integrated REST APIs with backend.}
+        \resumeItem{Built \textbf{10+ responsive React} UI components for the Cheffer app, improving cross-device compatibility; optimized state management to cut unnecessary re-renders.}
+        \resumeItem{Integrated \textbf{REST APIs} with the backend team to connect the client and server data flow.}
       \resumeItemListEnd
+
   \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------
 \section{Projects}
-  \resumeSubHeadingListStart
+    \resumeSubHeadingListStart
 
-    % 1. Core Banking System
-    \resumeProjectHeading
-      {\href{https://github.com/Tanishpal23/Banking-System}{\underline{\textbf{Core Banking System}}} \faExternalLink*
-      \ $|$ \emph{C++17, STL, File I/O, Git, LLD, OOP}}{\href{https://github.com/Tanishpal23/Banking-System}{\underline{\textbf{GitHub}}} \faExternalLink* $|$ \href{https://www.onlinegdb.com/MV9SF_PEn}{\underline{\textbf{Live Demo}}} \faExternalLink*}
-      \resumeItemListStart
-        \resumeItem{Built a PIN-authenticated core banking system in C++17 supporting accounts, deposits, and inter-account transfers.}
-        \resumeItem{Designed an append-only audit log persistence layer ensuring transaction state reliably survives restarts.}
-        \resumeItem{Engineered an adaptive CLI (ANSI color/UTF-8 detection) compiling warning-free under \texttt{-Wall -Wextra -Wpedantic}.}
-      \resumeItemListEnd
+      \resumeProjectHeading
+        {\href{https://github.com/Tanishpal23/Ai-Interiew-Mocker}{\underline{\textbf{Mock Mate}}} \faExternalLink*
+        \ $|$ \emph{Next.js 14, Gemini API, Neon PostgreSQL, Drizzle ORM, Clerk, Web Speech API}}{\href{https://mockmate-gamma.vercel.app/}{\underline{\textbf{Live Demo}}} \faExternalLink*}
+        \resumeItemListStart
+          \resumeItem{Built an AI mock-interview platform using \textbf{Google Gemini} to generate role-specific questions and return per-answer scores, model answers, and written feedback.}
+          \resumeItem{Added voice interviews with the browser \textbf{Web Speech API} (speech-to-text and text-to-speech), avoiding paid third-party audio services.}
+          \resumeItem{Modeled interview sessions, question banks, and performance history in \textbf{Neon PostgreSQL} with \textbf{Drizzle ORM}; kept DB credentials server-side via \textbf{React Server Actions} and implemented \textbf{authentication and role-based route protection} with \textbf{Clerk}.}
+        \resumeItemListEnd
 
-    % 2. Mock Mate
-    \resumeProjectHeading
-      {\href{https://mockmate-gamma.vercel.app/}{\underline{\textbf{Mock Mate}}} \faExternalLink*
-      \ $|$ \emph{Next.js 14, Gemini API, Neon PostgreSQL, Drizzle ORM, Web Speech API}}{\href{https://github.com/Tanishpal23/Ai-Interiew-Mocker}{\underline{\textbf{GitHub}}} \faExternalLink* $|$ \href{https://mockmate-gamma.vercel.app/}{\underline{\textbf{Live Demo}}} \faExternalLink*}
-      \resumeItemListStart
-        \resumeItem{Engineered an automated AI assessment platform via \textbf{Google Gemini LLM}, giving instant scoring and qualitative feedback.}
-        \resumeItem{Integrated browser-native \textbf{Web Speech STT/TTS} engines for sub-second vocal interview simulation without audio API costs.}
-        \resumeItem{Streamlined data persistence via \textbf{Neon Serverless PostgreSQL} and \textbf{Drizzle ORM}; secured auth via React Server Actions \& Clerk.}
-      \resumeItemListEnd
+      \resumeProjectHeading
+        {\href{https://github.com/Tanishpal23/ChessAnalyzer}{\underline{\textbf{ChessAnalyzer}}} \faExternalLink*
+        \ $|$ \emph{React, TypeScript, Stockfish 18 (WASM), Web Workers, Zustand, Vitest}}{\href{https://chess-analyzer-pearl.vercel.app/}{\underline{\textbf{Live Demo}}} \faExternalLink*}
+        \resumeItemListStart
+          \resumeItem{Built a fully client-side chess analysis tool running \textbf{Stockfish 18 in WebAssembly}, with engine search offloaded to \textbf{Web Workers} and UCI output parsed asynchronously to keep the UI responsive.}
+          \resumeItem{Implemented Chess.com-style accuracy scoring and a 10-tier move classification (Brilliant, Great, Missed Win, etc.) using a $\tanh$-based win-probability model.}
+          \resumeItem{Built an opening-book engine covering \textbf{110+ variations} with prefix-set hash lookups for $O(1)$ ECO identification; wrote \textbf{61 unit tests} in Vitest for move classification and the UCI pipeline.}
+        \resumeItemListEnd
 
-    % 3. KnowYourProduct
-    \resumeProjectHeading
-      {\href{https://knowyourproduct-wine.vercel.app/}{\underline{\textbf{KnowYourProduct}}} \faExternalLink*
-      \ $|$ \emph{React, Node.js, Express, MongoDB, Tailwind CSS}}{\href{https://github.com/Tanishpal23/knowyourproduct}{\underline{\textbf{GitHub}}} \faExternalLink* $|$ \href{https://knowyourproduct-wine.vercel.app/}{\underline{\textbf{Live Demo}}} \faExternalLink*}
-      \resumeItemListStart
-        \resumeItem{Engineered a health \& nutrition platform enabling consumers to scan, search, and compare packaged foods for dietary insights.}
-        \resumeItem{Integrated real-time barcode scanning via HTML5-QRCode API, mapping products to nutritional metrics and allergens.}
-        \resumeItem{Architected a secure Express \& MongoDB REST API with Mongoose text indexing and JWT authentication.}
-      \resumeItemListEnd
+      \resumeProjectHeading
+        {\href{https://github.com/Tanishpal23/knowyourproduct}{\underline{\textbf{KnowYourProduct}}} \faExternalLink*
+        \ $|$ \emph{React, Node.js, Express, MongoDB, JWT, Tailwind CSS}}{\href{https://knowyourproduct-wine.vercel.app/}{\underline{\textbf{Live Demo}}} \faExternalLink*}
+        \resumeItemListStart
+          \resumeItem{Built a full-stack food-scanning app: a browser \textbf{barcode scanner} (HTML5-QRCode) maps products to nutrition, allergen, and ingredient-concern data.}
+          \resumeItem{Designed a \textbf{RESTful API} (Express, MongoDB) with Mongoose text indexes for product search and \textbf{JWT authentication and authorization} for personalized user dashboards.}
+        \resumeItemListEnd
 
-    % 4. ChessAnalyzer
-    \resumeProjectHeading
-      {\href{https://chess-analyzer-pearl.vercel.app/}{\underline{\textbf{ChessAnalyzer}}} \faExternalLink*
-      \ $|$ \emph{React, TypeScript, Stockfish 18 WASM, Web Workers, Zustand, Vite}}{\href{https://github.com/Tanishpal23/ChessAnalyzer}{\underline{\textbf{GitHub}}} \faExternalLink* $|$ \href{https://chess-analyzer-pearl.vercel.app/}{\underline{\textbf{Live Demo}}} \faExternalLink*}
-      \resumeItemListStart
-        \resumeItem{Engineered a 100\% client-side chess analysis engine offloading Stockfish 18 WASM minimax search to Web Workers for 60 FPS play.}
-        \resumeItem{Implemented CAPS2 accuracy scoring using non-linear win-chance models ($\tanh$) to detect Brilliant moves and Missed Wins.}
-        \resumeItem{Built an opening theory engine covering 110+ variations with $O(1)$ prefix-set hash lookups for instant ECO identification.}
-      \resumeItemListEnd
+      \resumeProjectHeading
+        {\href{https://github.com/Tanishpal23/Banking-System}{\underline{\textbf{Core Banking System}}} \faExternalLink*
+        \ $|$ \emph{C++17, STL, File I/O, OOP, LLD}}{\href{https://www.onlinegdb.com/MV9SF_PEn}{\underline{\textbf{Live Demo}}} \faExternalLink*}
+        \resumeItemListStart
+          \resumeItem{Built a PIN-authenticated banking CLI in C++17 (accounts, deposits, withdrawals, transfers) with a file-based persistence layer and append-only audit log that survives restarts; compiles warning-free under \texttt{-Wall -Wextra -Wpedantic}.}
+        \resumeItemListEnd
 
-  \resumeSubHeadingListEnd
+    \resumeSubHeadingListEnd
 
-%-----------TECHNICAL SKILLS-----------
+%-----------SKILLS-----------
 \section{Technical Skills}
- \begin{itemize}[leftmargin=0.12in, label={}, itemsep=1pt, parsep=0pt, topsep=1pt]
+ \begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt, parsep=0pt]
     \small{
-      \item \textbf{Languages}{: C/C++ (C++17), Python, JavaScript (ES6+), TypeScript, SQL}
-      \item \textbf{Frameworks \& Libraries}{: React.js, Next.js, Redux, Node.js, Express.js, TailwindCSS}
-      \item \textbf{Databases \& Tools}{: PostgreSQL, MySQL, MongoDB, Drizzle ORM, Git, GitHub, Postman, Vercel, VS Code}
-      \item \textbf{APIs \& Cloud}{: Google Gemini API, OpenAI API, REST APIs, Web Workers, WebAssembly (WASM)}
-      \item \textbf{Data Analysis}{: Power BI, Power Query, DAX, Excel, Pandas, NumPy}
-      \item \textbf{Core Coursework}{: Data Structures \& Algorithms, Object-Oriented Programming (OOP), DBMS, Operating Systems}
+      \item \textbf{Languages}{: C/C++, Python, JavaScript (ES6+), TypeScript, SQL}
+      \item \textbf{Frameworks \& Libraries}{: React.js, Next.js, Redux, Zustand, Node.js, Express.js, Tailwind CSS, Responsive Web Design}
+      \item \textbf{Backend \& APIs}{: RESTful API Design, JWT Authentication, Role-Based Access Control, Server Actions, Postman}
+      \item \textbf{Testing \& Automation}{: Unit Testing (Vitest), Pytest, Requests, Test Automation, API Testing, Logging, JSON}
+      \item \textbf{Databases}{: PostgreSQL, MySQL, MongoDB, Drizzle ORM, Mongoose}
+      \item \textbf{DevOps \& Cloud}{: Docker, GitHub Actions (CI/CD), Linux, Nginx, AWS (EC2, S3), Cloudflare R2, Backblaze B2}
+      \item \textbf{Tools \& APIs}{: Git, GitHub, Vercel, Render, VS Code, OpenAI API, Google Gemini API}
+      \item \textbf{Data Analysis \& Visualization}{: Power BI, Power Query, DAX, Excel, Pandas, NumPy, Matplotlib, Tableau}
+      \item \textbf{Core CS}{: Data Structures \& Algorithms, OOP, Low-Level Design, Operating Systems, DBMS}
     }
  \end{itemize}
- \vspace{-4pt}
 
-%-----------ACHIEVEMENTS & ACTIVITIES-----------
-\section{Achievements \& Activities}
+%-----------ACHIEVEMENTS-----------
+\section{Achievements}
   \resumeItemListStart
-    \resumeItem{\textbf{\href{https://leetcode.com/u/Tech_tonic/}{LeetCode}} -- Peak rating 1726; solved 500+ DSA/Dynamic Programming problems (top percentile, Contest 479).}
-    \resumeItem{\textbf{Smart India Hackathon (SIH) Participant} $|$ GDSC NITJ Hackathon Finalist -- Selected for national-level SIH (Govt. of India); ranked among top teams at GDSC NITJ hackathon competing against 50+ teams.}
+    \resumeItem{\textbf{\href{https://leetcode.com/u/Tech_tonic/}{LeetCode}}: peak rating 1726; solved 500+ DSA and Dynamic Programming problems (top percentile, Contest 479).}
+    \resumeItem{\textbf{Smart India Hackathon} participant (Government of India); \textbf{GDSC NITJ Hackathon} finalist among 50+ teams.}
   \resumeItemListEnd
 
 \end{document}
