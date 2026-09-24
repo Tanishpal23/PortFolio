@@ -58,6 +58,11 @@ const PORTFOLIO_CONFIG = {
       name: "Brainly",
       codeUrl: "https://github.com/Tanishpal23",
       demoUrl: "https://brainly-ko1p.vercel.app/"
+    },
+    fileVault: {
+      name: "FileVault",
+      codeUrl: "https://github.com/Tanishpal23/FileVault",
+      demoUrl: "https://file-vault-ten-henna.vercel.app"
     }
   },
 

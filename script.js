@@ -72,6 +72,10 @@ function applyPortfolioConfig() {
         PROJECT_DETAILS.nexmeet.demoUrl = PORTFOLIO_CONFIG.projects.nexMeet.demoUrl;
         PROJECT_DETAILS.nexmeet.codeUrl = PORTFOLIO_CONFIG.projects.nexMeet.codeUrl;
       }
+      if (PROJECT_DETAILS.filevault && PORTFOLIO_CONFIG.projects.fileVault) {
+        PROJECT_DETAILS.filevault.demoUrl = PORTFOLIO_CONFIG.projects.fileVault.demoUrl;
+        PROJECT_DETAILS.filevault.codeUrl = PORTFOLIO_CONFIG.projects.fileVault.codeUrl;
+      }
     }
   }
 }
@@ -368,6 +372,36 @@ const PROJECT_DETAILS = {
       <ul class="modal-points">
         <li>Guaranteed complete schema validity on every API route using Zod schemas.</li>
         <li>NextAuth role-based session tokens enforcing security against unauthorized room joins.</li>
+      </ul>
+    `
+  },
+  filevault: {
+    title: 'FileVault - Enterprise Cloud Storage & Real-Time SaaS Architecture',
+    tag: 'Next.js 16, TypeScript, Node.js, Prisma, S3 & Socket.IO',
+    demoUrl: 'https://file-vault-ten-henna.vercel.app',
+    codeUrl: 'https://github.com/Tanishpal23/FileVault',
+    bodyHtml: `
+      <p>FileVault is an enterprise cloud storage and collaboration SaaS platform inspired by Google Drive and Dropbox, engineered for resilient multipart file streaming, zero server-memory bottlenecks, and bi-directional real-time document collaboration.</p>
+
+      <div class="modal-section-title"><i class="fa-solid fa-cloud-arrow-up text-cyan"></i> Chunked Resumable Direct-to-S3 Uploads</div>
+      <ul class="modal-points">
+        <li>Bypasses backend memory bottlenecks by slicing files into 5MB chunks and streaming them directly to <strong>Cloudflare R2 / Backblaze B2 (S3-compatible)</strong> via presigned multipart PUT URLs.</li>
+        <li>Implements exponential backoff retries and validates cryptographic <strong>SHA-256 checksums</strong> upon finalization to protect against file corruption.</li>
+        <li>Enforces strict pre-upload 1 GB quota validation against Neon PostgreSQL before storage allocation.</li>
+      </ul>
+
+      <div class="modal-section-title"><i class="fa-solid fa-comments text-purple"></i> Real-Time Socket.IO File Rooms & Collaboration</div>
+      <ul class="modal-points">
+        <li>Isolated WebSocket rooms (<code>file:{id}</code>) connect active document viewers for live side-by-side comment threads and instant updates.</li>
+        <li>Universal in-browser viewer supporting PDFs, images (with zoom, rotate, and pan), audio waveforms, and streaming video using proper <code>Content-Disposition: inline</code> negotiation.</li>
+      </ul>
+
+      <div class="modal-section-title"><i class="fa-solid fa-shield-halved text-emerald"></i> Enterprise RBAC, Cryptographic OTP & Canvas Captcha</div>
+      <ul class="modal-points">
+        <li>Granular 4-tier Role-Based Access Control (<em>Owner, Editor, Commenter, Viewer</em>) with bcrypt-password-protected, expiring public share links.</li>
+        <li>Firewall-immune transactional email dispatch over <strong>HTTPS Port 443 (Brevo & Resend REST APIs)</strong> for 6-digit SHA-256 hashed registration OTPs and password resets.</li>
+        <li>Custom interactive <strong>HTML5 Canvas visual Captcha</strong> defending authentication endpoints against automated bots and credential stuffing.</li>
+        <li>Complete privacy compliance with two-tier 30-day soft-delete trash bin and automated permanent cloud object purge upon account deletion.</li>
       </ul>
     `
   }

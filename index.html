@@ -254,7 +254,53 @@
         <!-- Projects Grid -->
         <div class="projects-grid" id="projects-grid">
           
-          <!-- PROJECT 1: Core Banking System -->
+          <!-- PROJECT 1: FileVault -->
+          <article class="project-card glass-card" data-category="ai-fullstack">
+            <div class="project-banner project-banner-filevault">
+              <div class="banner-badge"><i class="fa-solid fa-cloud-arrow-up"></i> Next.js 16 + S3 + Real-Time</div>
+              <div class="project-visual-icon"><i class="fa-solid fa-vault"></i></div>
+            </div>
+            <div class="project-content">
+              <div class="project-top">
+                <span class="project-cat">Cloud Storage & SaaS</span>
+                <h3 class="project-name">FileVault</h3>
+              </div>
+              <p class="project-desc">
+                Enterprise cloud storage & real-time collaboration platform engineered with resumable chunked S3 uploads, multi-user document discussion rooms, and granular access controls.
+              </p>
+
+              <ul class="project-highlights">
+                <li><i class="fa-solid fa-check"></i> <strong>Direct-to-S3 Resumable Uploads:</strong> Streams 5MB slices directly to S3/R2/B2 via presigned URLs with SHA-256 validation, eliminating backend memory bottlenecks.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Real-Time File Rooms:</strong> Bidirectional Socket.IO rooms for instant side-by-side file comments, discussions, and live collaboration.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Enterprise RBAC & Security:</strong> 4-tier roles (Owner/Editor/Commenter/Viewer), password-protected expiring share links, Brevo/Resend REST OTPs, and Canvas Captcha bot defense.</li>
+              </ul>
+
+              <div class="project-tags">
+                <span>Next.js 16</span>
+                <span>TypeScript</span>
+                <span>Node.js / Express</span>
+                <span>PostgreSQL (Neon)</span>
+                <span>Prisma ORM</span>
+                <span>AWS S3 / R2</span>
+                <span>Socket.IO</span>
+                <span>Tailwind CSS</span>
+              </div>
+
+              <div class="project-links">
+                <a href="https://file-vault-ten-henna.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary" data-config-link="projects.fileVault.demoUrl">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                </a>
+                <a href="https://github.com/Tanishpal23/FileVault" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline" data-config-link="projects.fileVault.codeUrl">
+                  <i class="fa-brands fa-github"></i> Code
+                </a>
+                <button class="btn btn-sm btn-glass btn-details" data-project="filevault">
+                  <i class="fa-solid fa-circle-info"></i> Architecture
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: Core Banking System -->
           <article class="project-card glass-card" data-category="systems">
             <div class="project-banner project-banner-banking">
               <div class="banner-badge"><i class="fa-solid fa-shield-halved"></i> C++17 Core Engine</div>
@@ -298,7 +344,7 @@
             </div>
           </article>
 
-          <!-- PROJECT 2: Mock Mate -->
+          <!-- PROJECT 3: Mock Mate -->
           <article class="project-card glass-card" data-category="ai-fullstack">
             <div class="project-banner project-banner-mockmate">
               <div class="banner-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Gemini AI + Voice</div>
@@ -342,7 +388,7 @@
             </div>
           </article>
 
-          <!-- PROJECT 3: KnowYourProduct -->
+          <!-- PROJECT 4: KnowYourProduct -->
           <article class="project-card glass-card" data-category="ai-fullstack">
             <div class="project-banner project-banner-kyp">
               <div class="banner-badge"><i class="fa-solid fa-barcode"></i> Real-Time Scanner</div>
@@ -386,8 +432,8 @@
             </div>
           </article>
 
-          <!-- PROJECT 4: ChessAnalyzer -->
-          <article class="project-card glass-card" data-category="systems">
+          <!-- PROJECT 5: ChessAnalyzer -->
+          <article class="project-card glass-card" data-category="wasm">
             <div class="project-banner project-banner-chess">
               <div class="banner-badge"><i class="fa-solid fa-chess"></i> Stockfish 18 WASM</div>
               <div class="project-visual-icon"><i class="fa-solid fa-chess-knight"></i></div>
@@ -431,7 +477,7 @@
             </div>
           </article>
 
-          <!-- PROJECT 5: Sales Performance Dashboard -->
+          <!-- PROJECT 6: Sales Performance Dashboard -->
           <article class="project-card glass-card" data-category="analytics">
             <div class="project-banner project-banner-powerbi">
               <div class="banner-badge"><i class="fa-solid fa-chart-line"></i> BI & Data Analytics</div>
@@ -474,7 +520,7 @@
             </div>
           </article>
 
-          <!-- PROJECT 6: NexMeet & Brainly Extended Systems -->
+          <!-- PROJECT 7: NexMeet & Brainly Extended Systems
           <article class="project-card glass-card" data-category="ai-fullstack">
             <div class="project-banner project-banner-nexmeet">
               <div class="banner-badge"><i class="fa-solid fa-video"></i> Real-Time WebRTC</div>
@@ -516,7 +562,7 @@
                 </button>
               </div>
             </div>
-          </article>
+          </article> -->
 
         </div>
       </div>
@@ -970,7 +1016,7 @@
               </div>
 
               <div class="form-group">
-                <label for="contact-email">Your Email</label>
+                <label for="contact-email">Your Contact Email</label>
                 <input type="email" id="contact-email" required placeholder="jane@example.com" class="form-input">
               </div>
 

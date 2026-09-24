@@ -810,6 +810,10 @@ body {
   background: radial-gradient(circle at top right, rgba(236, 72, 153, 0.25), transparent 70%), #210e1a;
 }
 
+.project-banner-filevault {
+  background: radial-gradient(circle at top right, rgba(0, 242, 254, 0.3), rgba(14, 165, 233, 0.15)), #081528;
+}
+
 .banner-badge {
   position: absolute;
   top: 1rem;
